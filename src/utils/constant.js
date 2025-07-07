@@ -1,3 +1,3 @@
 export const WELCOME_URL = "https://marketplace.canva.com/EAFw8hKewR4/1/0/1600w/canva-brown-aesthetic-email-header-iBVqHSKhve8.jpg"
 
-export const LOGO_URL = "https://media.canva.com/v2/files/uri:ifs%3A%2F%2FS%2F5e40489d-9fd3-44fc-be10-cf3307224093_00000017_003_thumbnail?csig=AAAAAAAAAAAAAAAAAAAAABe6IsGJ4_LHRE_dEoGmTzN9K1JkhRCgmNVwkZoliPoq&exp=1751882996&signer=assistant-rpc&token=AAIAAVMAOzVlNDA0ODlkLTlmZDMtNDRmYy1iZTEwLWNmMzMwNzIyNDA5M18wMDAwMDAxN18wMDNfdGh1bWJuYWlsAAAAAAGX5F0bLMoU_YEtnsvhiK_9-3PHf4F6aWSXKsLwCy79Gcq9ffkc"
+export const LOGO_URL = "https://raw.githubusercontent.com/Prutvi-Naik/Images/refs/heads/main/B_logo.jpg?token=GHSAT0AAAAAADEGCVA3CBWMW63DHJV3TNMS2DLZKBQ"
