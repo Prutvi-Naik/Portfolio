@@ -9,5 +9,9 @@
    - Toggle it using system theme support
    - Getting stuck with manually toggle
    - Pratice with it 
-
-  
+- Day3
+    - Learn about header
+    - Desing the header and code for it 
+    - Learn little bit about framer-motion 
+    - Make header responsive for mobile 
+    - ADd Framer-motion for mobile 

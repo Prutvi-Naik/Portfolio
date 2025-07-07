@@ -1,22 +1,24 @@
 
+import Header from "./components/Header";
 const App = () => {
   document.documentElement.classList.toggle(
   "dark",
   localStorage.theme === "dark" ||
     (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
 );
-// Whenever the user explicitly chooses light mode
 localStorage.theme = "light";
-// Whenever the user explicitly chooses dark mode
 localStorage.theme = "dark";
-// Whenever the user explicitly chooses to respect the OS preference
 localStorage.removeItem("theme");
   return (
-    <div className="h-screen bg-white dark:bg-zinc-800">
-      <div className="">
-      <p className="text-green-500 dark:text-amber-200">hello world</p>
+  
+    <div className="h-full bg-zinc-50 dark:bg-zinc-800 dark:text-amber-50 ">
+      <div className="w-full max-w-11/12 mx-auto pt-6">
+     <Header/>
+      <div className="h-300"></div>
       </div>
+   
    </div>
+  
   )
 }
 
