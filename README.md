@@ -22,4 +22,9 @@
    - Make header responsive for mobile 
    - Add links for connect to social media
    
+ - Day4
+   - Design and Create Home Page
+   - Add inside greeting and some more info with img
+   - Motion for heding 
+   - Make it responsive and attractive design on multiple devices
 

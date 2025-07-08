@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 const HomePage = () => {
   return (
+   
    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300" id='home'>
   <div className="container mx-auto px-4 py-10 md:py-20">
    
