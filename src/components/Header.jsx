@@ -16,11 +16,11 @@ const Header = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Real-Time', path: '/realtime' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Real-Time', href: '/realtime' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   // Apply dark mode
@@ -50,7 +50,7 @@ const Header = () => {
             </span>
           </Link>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 ">
             {/* Dark Mode Toggle */}
             <button
               onClick={() => setDarkMode(!darkMode)}
@@ -69,16 +69,16 @@ const Header = () => {
               <ul className="flex space-x-6">
                 {navLinks.map((link) => (
                   <li key={link.name}>
-                    <Link
-                      to={link.path}
-                      className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    <a
+                      href={link.href}
+                      className={`px-3 py-2 rounded-md text-sm scroll-smooth font-medium transition-colors ${
                         location.pathname === link.path
                           ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200'
                           : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'
                       }`}
                     >
                       {link.name}
-                    </Link>
+                    </a>
                   </li>
                 ))}
               </ul>

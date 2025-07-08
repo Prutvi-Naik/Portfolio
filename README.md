@@ -10,8 +10,16 @@
    - Getting stuck with manually toggle
    - Pratice with it 
 - Day3
+ - Header
     - Learn about header
     - Desing the header and code for it 
     - Learn little bit about framer-motion 
     - Make header responsive for mobile 
     - ADd Framer-motion for mobile 
+ - Footer
+   - Plan footer 
+   - Design the footer and code 
+   - Make header responsive for mobile 
+   - Add links for connect to social media
+   
+

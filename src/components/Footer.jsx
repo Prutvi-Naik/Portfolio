@@ -47,7 +47,7 @@ const Footer = () => {
         whileInView="visible"
         viewport={{ once: true }}
         variants={footerVariants}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.9 }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sticky bottom-0">
           {/* Mobile-Centered Grid */}
@@ -78,7 +78,7 @@ const Footer = () => {
                 Quick Links
               </h3>
               <nav className="flex flex-col ">
-                {['Home', 'About', 'Projects', 'Contact'].map((item) => (
+                {['Home', 'About', 'Projects', 'Real-Time','Contact'].map((item) => (
                   <a
                     key={item}
                     href={`#${item.toLowerCase()}`}
@@ -124,8 +124,8 @@ const Footer = () => {
             variants={footerVariants}
           >
             <div className="text-sm text-gray-500 dark:text-slate-500 mb-3 md:mb-0">
-              <a href="/privacy" className="hover:underline mx-2">Privacy Policy</a>
-              <a href="/terms" className="hover:underline mx-2">Terms of Service</a>
+              <a  className="hover:underline mx-2">Privacy Policy</a>
+              <a  className="hover:underline mx-2">Terms of Service</a>
             </div>
             <div className="text-sm text-gray-500 dark:text-slate-500">
               Last updated: {new Date().toLocaleDateString()}

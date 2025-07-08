@@ -1,5 +1,6 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import HomePage from "./components/HomePage";
 
 const App = () => {
  
@@ -15,10 +16,10 @@ const App = () => {
   localStorage.removeItem("theme");
 
   return (
-    <div className="h-auto bg-zinc-50 dark:bg-zinc-800 dark:text-amber-50">
+    <div className="h-auto bg-zinc-50 dark:bg-zinc-800 dark:text-amber-50 scroll-smooth">
       <div className="w-full  mx-auto ">
         <Header />
-        <div className="h-screen"></div>
+        <HomePage/>
         <Footer />
       </div>
     </div>
