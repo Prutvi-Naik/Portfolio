@@ -1,7 +1,7 @@
 # PPruthvijit's Developer Portfolio 🚀
 
 This is my 30-day portfolio challenge project built with:
-* Tech.
+- Tech.
  - React + Vite
  - Tailwind CSS
  - Framer Motion
