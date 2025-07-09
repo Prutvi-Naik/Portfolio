@@ -1,4 +1,13 @@
-# Portfolio
+# PPruthvijit's Developer Portfolio 🚀
+
+This is my 30-day portfolio challenge project built with:
+* Tech.
+ - React + Vite
+ - Tailwind CSS
+ - Framer Motion
+ - GitHub & Spotify APIs
+ - Web Speech API
+
 - Day1 
    - Create react project using vite and configure it 
    - Configure Tailwind CSS inside it
@@ -32,4 +41,5 @@
    - Learn Motion and how is it work 
    - Apply on Home page
    - Getting sum error related with it and solve using AI
+   - Host on netlify 
    
