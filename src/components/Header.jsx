@@ -19,8 +19,8 @@ const Header = () => {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Real-Time', href: '/realtime' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Real-Time', href: '#realtime' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   // Apply dark mode
@@ -135,7 +135,7 @@ const Header = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <Link
+                    <a
                       to={link.path}
                       className={`block px-4 py-3 rounded-md text-sm font-medium transition-colors ${
                         location.pathname === link.path
@@ -144,7 +144,7 @@ const Header = () => {
                       }`}
                     >
                       {link.name}
-                    </Link>
+                    </a>
                   </motion.li>
                 ))}
               </motion.ul>

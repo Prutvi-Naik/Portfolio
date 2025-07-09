@@ -28,3 +28,8 @@
    - Motion for heding 
    - Make it responsive and attractive design on multiple devices
 
+ - Day5
+   - Learn Motion and how is it work 
+   - Apply on Home page
+   - Getting sum error related with it and solve using AI
+   
