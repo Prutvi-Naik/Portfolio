@@ -33,6 +33,7 @@ const Footer = () => {
           className="fixed bottom-6 right-6 p-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-colors z-50"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          transition={{delay:1}}
           exit={{ opacity: 0 }}
           aria-label="Back to top"
         >

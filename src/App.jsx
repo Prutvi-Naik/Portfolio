@@ -21,6 +21,7 @@ const App = () => {
       <div className="w-full  mx-auto ">
         <Header />
         <HomePage/>
+        <About />
         <Footer />
       </div>
     </div>

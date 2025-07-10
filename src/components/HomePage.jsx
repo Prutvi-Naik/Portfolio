@@ -1,36 +1,40 @@
 import React from "react";
 import { motion } from "framer-motion";
 const HomePage = () => {
+   const homeVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
   return (
     <div
-      className=" bg-white dark:bg-gray-900 transition-colors duration-300 pb-3.5"
+      className="bg-white dark:bg-gray-900 transition-colors duration-300 pb-3.5"
       id="home"
     >
       <div className="container mx-auto px-4 py-10 md:py-20">
         <motion.div
           className="flex flex-col md:flex-row gap-12 items-center"
-          initial={{ opacity: 0, y: -80 }} // Starts slightly above
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.6,
-            ease: [0.25, 0.1, 0.25, 1],
-          }}
+         initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={homeVariants}
+        transition={{ duration: 0.9}}
         >
           <div className="w-full md:w-1/2 space-y-6">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+            className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-200 mb-2"
+
             >
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-200 mb-2">
                 Hi, I'm <span className="text-indigo-600">Pruthvijit</span>{" "}
                 <span className="animate-wiggle inline-block">👋</span>
-              </h1>
+              
             </motion.h1>
 
-            <motion.p className="text-xl text-gray-700 dark:text-gray-300">
+            <p className="text-xl text-gray-700 dark:text-gray-300">
               Front-End Developer | React Enthusiast
-            </motion.p>
+            </p>
 
             <p className="text-lg text-gray-600 dark:text-gray-400">
               I design responsive, modern UIs using React, Tailwind, and motion
