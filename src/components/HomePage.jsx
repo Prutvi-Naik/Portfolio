@@ -7,7 +7,7 @@ const HomePage = () => {
   };
   return (
     <div
-      className="bg-white dark:bg-gray-900 transition-colors duration-300 pb-3.5"
+      className="bg-white dark:bg-gray-900 transition-colors duration-300 mt20"
       id="home"
     >
       <div className="container mx-auto px-4 py-10 md:py-20">

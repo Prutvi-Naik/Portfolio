@@ -2,15 +2,17 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
-import {  AnimatePresence } from 'framer-motion';
-import { motion } from 'framer-motion';
+import { MoonIcon, SunIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem('darkMode') === 'true' || 
-           (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('darkMode') === 'true' || 
+             (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+    return false;
   });
   const location = useLocation();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -34,25 +36,41 @@ const Header = () => {
     }
   }, [darkMode]);
 
-  // Close menu when navigating
+  // Close menu when navigating or clicking outside
+  // useEffect(() => {
+  //   const handleClickOutside = (event: MouseEvent) => {
+  //     if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+  //       setIsMenuOpen(false);
+  //     }
+  //   };
+
+  //   document.addEventListener('mousedown', handleClickOutside);
+  //   return () => document.removeEventListener('mousedown', handleClickOutside);
+  // }, []);
+
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location]);
 
   return (
-    <header className="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-md transition-colors duration-300">
+    <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md transition-colors duration-300">
       <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+            <motion.span 
+              whileHover={{ scale: 1.05 }}
+              className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent"
+            >
               🧑 Pruthvijit.Dev
-            </span>
+            </motion.span>
           </Link>
 
-          <div className="flex items-center gap-4 ">
+          <div className="flex items-center gap-4">
             {/* Dark Mode Toggle */}
-            <button
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
               aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
@@ -62,41 +80,46 @@ const Header = () => {
               ) : (
                 <MoonIcon className="h-5 w-5 text-gray-700" />
               )}
-            </button>
+            </motion.button>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:block">
-              <ul className="flex space-x-6">
+              <ul className="flex space-x-2">
                 {navLinks.map((link) => (
-                  <li key={link.name}>
+                  <motion.li 
+                    key={link.name}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
                     <a
                       href={link.href}
-                      className={`px-3 py-2 rounded-md text-sm scroll-smooth font-medium transition-colors ${
-                        location.pathname === link.path
-                          ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200'
+                      className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                        location.hash === link.href
+                          ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-200'
                           : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'
                       }`}
                     >
                       {link.name}
                     </a>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </nav>
 
             {/* Mobile Menu Button */}
-            <button
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               className="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
-              <div
-                animate={isMenuOpen ? "open" : "closed"}
-                className="relative w-6 h-6"
-              >
-               ≡
-              </div>
-            </button>
+              {isMenuOpen ? (
+                <XMarkIcon className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+              ) : (
+                <Bars3Icon className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+              )}
+            </motion.button>
           </div>
         </div>
 
@@ -107,7 +130,7 @@ const Header = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
               className="md:hidden overflow-hidden"
               ref={containerRef}
             >
@@ -125,7 +148,7 @@ const Header = () => {
                   }
                 }}
               >
-                {navLinks.map((link,) => (
+                {navLinks.map((link) => (
                   <motion.li
                     key={link.name}
                     variants={{
@@ -136,12 +159,13 @@ const Header = () => {
                     whileTap={{ scale: 0.98 }}
                   >
                     <a
-                      to={link.path}
+                      href={link.href}
                       className={`block px-4 py-3 rounded-md text-sm font-medium transition-colors ${
-                        location.pathname === link.path
-                          ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200'
+                        location.hash === link.href
+                          ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-200'
                           : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'
                       }`}
+                      onClick={() => setIsMenuOpen(false)}
                     >
                       {link.name}
                     </a>

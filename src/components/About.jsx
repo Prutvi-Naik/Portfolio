@@ -17,7 +17,7 @@ const About = () => {
       viewport={{ once: true }}
       variants={aboutVariants}
       transition={{ duration: 1 }}
-      className=" bg-white dark:bg-gray-900 transition-colors duration-300 pb-3.5"
+      className=" bg-white dark:bg-gray-900 transition-colors duration-300 pb-3.5 pt-20"
       id="about"
     >
       {" "}
