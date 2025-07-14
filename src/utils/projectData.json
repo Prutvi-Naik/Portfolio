@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Netflix-gpt ",
+    "description": "Tired of endlessly scrolling? Netflix-GPT eliminates decision fatigue by leveraging AI to understand what you truly want to watch. Whether you're in the mood for a *90s sci-fi thriller* or feel-good animated movies,",
+    "date": "2025-july",
+    "technologies": [
+      "React",
+      "Redux",
+      "Firebase",
+      "OpenAI API",
+      "TMDB API",
+      " Netflix-like UI"
+    ],
+    "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bmV0ZmxpeHxlbnwwfHwwfHx8MA%3D%3D",
+    "github": "https://github.com/Prutvi-Naik/Netflix-gpt",
+    "liveDemo": "",
+    "category": "Web App",
+    "tags": [
+      "frontend",
+      "portfolio",
+      "react"
+    ],
+    "features": [
+      "AI-Powered Recommendations (GPT-enhanced suggestions)",
+      "Natural Language Search ('Find movies like The Dark Knight')",
+      "User Auth + Personalized Profiles (Firebase)",
+      "TMDB API Integration (Real-time movie data)"
+    ],
+    "progress": "Working"
+  },
+   {
+    "id": 2,
+    "name": "Dice-Game",
+    "description": "Test your luck with this interactive dice-rolling game! Players take turns rolling a virtual die, racing to reach the target score before their opponent. Built with HTML, CSS, and JavaScript, it’s a perfect blend of chance and strategy.",
+    "date": "2025-july",
+    "technologies": [
+      "React",
+      "Tailwind"
+    ],
+    "image": "https://static.vecteezy.com/system/resources/previews/008/898/534/original/3d-render-dice-game-free-download-free-photo.jpg",
+    "github": "https://github.com/Prutvi-Naik/Dice-game",
+    "liveDemo": "https://dice-game-pruthvi.netlify.app/",
+    "category": "Web App",
+    "tags": [
+      "frontend",
+      "portfolio",
+      "react"
+    ],
+    "features": [
+      "Interactive Dice Rolling",
+      "Turn-Based Gameplay",
+      "Score Tracking",
+      "Responsive Design"   
+    ],
+    "progress": "Complete"
+  }
+]

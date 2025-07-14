@@ -43,3 +43,8 @@ This is my 30-day portfolio challenge project built with:
    - Getting sum error related with it and solve using AI
    - Host on netlify 
    
+- Day6 
+  - Create about component 
+  - Add bio section and give some motion effect
+  - Add skills section 
+  - Add react icons and add symbol related to skills 
