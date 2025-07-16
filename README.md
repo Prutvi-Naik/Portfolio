@@ -48,3 +48,9 @@ This is my 30-day portfolio challenge project built with:
   - Add bio section and give some motion effect
   - Add skills section 
   - Add react icons and add symbol related to skills 
+
+- Day7 
+   - Add project page 
+   - Desing it 
+   - Add some projects usign Json Data
+   - Remaning projects in next day

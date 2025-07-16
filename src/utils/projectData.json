@@ -1,5 +1,32 @@
 [
-  {
+   
+    {
+    "id": 4,
+    "name": "Food-Delivery-App",
+    "description": "A food delivery app that allows users to browse restaurants, view menus, and place orders. Built with React and Tailwind CSS, this project showcases modern web development practices and responsive design.",
+    "date": "2025-may",
+    "technologies": [
+      "React",
+      "Tailwind",
+      "Swiggy API"
+    ],
+    "image": "https://www.foodandwine.com/thmb/qnzbUoBVBIrHNgv21cME7FhANa4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/smoked-salmon-caviar-gougeres-FT-RECIPE0822-2000-ce331adb19ac4678a6e63f5b8c753fdb.jpg",
+    "github": "https://github.com/Prutvi-Naik/FoodOrderingApp",
+    "liveDemo": "",
+    "category": "Web App",
+    "tags": [
+      "frontend",
+      "Atm",
+      "Logic Building"
+    ],
+    "features": [
+      "User Authentication",
+      "Balance Inquiry",
+      "Fund Transfer",
+      "And more features"   
+    ],
+    "progress": "Working"
+  },{
     "id": 1,
     "name": "Netflix-gpt ",
     "description": "Tired of endlessly scrolling? Netflix-GPT eliminates decision fatigue by leveraging AI to understand what you truly want to watch. Whether you're in the mood for a *90s sci-fi thriller* or feel-good animated movies,",
@@ -54,5 +81,33 @@
       "Responsive Design"   
     ],
     "progress": "Complete"
+  },
+  {
+    "id": 3,
+    "name": "ATM-Management-System",
+    "description": "A comprehensive ATM management system that allows users to perform basic banking operations like balance inquiry, fund transfer. Built with JavaScript, this project showcases object-oriented programming principles and the DOM Manipulation.",
+    "date": "2025-feb",
+    "technologies": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "image": "https://www.bankofbaroda.in/-/media/project/bob/countrywebsites/india/blogs/images/28-12/what-is-atm-full-form-definition-uses_2.jpg",
+    "github": "",
+    "liveDemo": "https://dosti-bank.netlify.app/",
+    "category": "Web App",
+    "tags": [
+      "frontend",
+      "Atm",
+      "Logic Building"
+    ],
+    "features": [
+      "User Authentication",
+      "Balance Inquiry",
+      "Fund Transfer",
+      "And more features"   
+    ],
+    "progress": "Complete"
   }
+ 
 ]

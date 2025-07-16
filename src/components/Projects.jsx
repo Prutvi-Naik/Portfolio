@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import projects from "../utils/projectData.json";
 
@@ -27,71 +27,141 @@ const ProgressBadge = ({ status }) => {
   const config = statusConfig[status.toLowerCase()] || statusConfig.complete;
 
   return (
-    <span className={`text-xs font-medium px-2.5 py-0.5 rounded-full ${config.bg} ${config.textColor} ${config.border} border`}>
+    <motion.span 
+      initial={{ scale: 0.9, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.3, delay: 0.2 }}
+      className={`text-xs font-medium px-2.5 py-0.5 rounded-full ${config.bg} ${config.textColor} ${config.border} border`}
+    >
       {config.text}
-    </span>
+    </motion.span>
   );
 };
 
 const ProjectCard = ({ project }) => {
   return (
     <motion.div
-      variants={{
-        hidden: { opacity: 0, y: 50 },
-        visible: { 
-          opacity: 1, 
-          y: 0,
-          transition: { duration: 0.6, ease: "easeOut" }
-        },
-        hover: { y: -5 }
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ 
+        opacity: 1, 
+        y: 0,
+        transition: { 
+          duration: 0.6, 
+          ease: [0.16, 1, 0.3, 1],
+          delay: project.id * 0.1
+        }
       }}
-      whileHover="hover"
-      className="group flex flex-col md:flex-row items-stretch bg-white dark:bg-gray-800 rounded-3xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-shadow duration-300"
+      viewport={{ once: true, margin: "-50px" }}
+      whileHover={{ 
+        y: -10,
+        transition: { duration: 0.3, ease: "easeOut" }
+      }}
+      className="group flex flex-col md:flex-row items-stretch bg-white dark:bg-gray-800 rounded-3xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-300"
     >
       <div className="md:w-2/5 w-full relative overflow-hidden">
-        <motion.img
-          src={project.image}
-          alt={project.name}
-          className="object-cover w-full h-48 md:h-full group-hover:scale-105 transition-transform duration-500"
-          initial={{ opacity: 0.9 }}
-          whileHover={{ opacity: 1 }}
-        />
+        <motion.div
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.5 }}
+          className="w-full h-full"
+        >
+          <motion.img
+            src={project.image}
+            alt={project.name}
+            className="object-cover w-full h-48 md:h-full"
+            initial={{ opacity: 0.9 }}
+            whileHover={{ opacity: 1 }}
+          />
+        </motion.div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-blue-400 via-purple-500 to-pink-500" />
+        <motion.div 
+          initial={{ height: 0 }}
+          whileInView={{ height: "100%" }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="absolute top-0 left-0 w-1.5 bg-gradient-to-b from-blue-400 via-purple-500 to-pink-500"
+        />
       </div>
+      
       <div className="flex-1 p-8 flex flex-col justify-between">
         <div>
           <div className="flex items-center gap-3 mb-3 flex-wrap">
-            <h1 className="font-bold text-3xl text-gray-800 dark:text-white">
+            <motion.h1 
+              initial={{ x: -20, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="font-bold text-3xl text-gray-800 dark:text-white"
+            >
               {project.name}
-            </h1>
-            <div className="flex gap-2">
-              <span className="text-xs bg-gradient-to-r from-blue-500 to-purple-500 text-white px-2 py-1 rounded-full">
+            </motion.h1>
+            <motion.div 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ staggerChildren: 0.1 }}
+              className="flex gap-2"
+            >
+              <motion.span 
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                className="text-xs bg-gradient-to-r from-blue-500 to-purple-500 text-white px-2 py-1 rounded-full"
+              >
                 New
-              </span>
+              </motion.span>
               <ProgressBadge status={project.progress || "complete"} />
-            </div>
+            </motion.div>
           </div>
-          <p className="text-gray-600 dark:text-gray-300 mb-5 leading-relaxed">
+          
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-gray-600 dark:text-gray-300 mb-5 leading-relaxed"
+          >
             {project.description}
-          </p>
-          <div className="flex flex-wrap gap-2 mb-6">
+          </motion.p>
+          
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-wrap gap-2 mb-6"
+          >
             {project.technologies.map((tech, i) => (
               <motion.span
                 key={i}
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 + i * 0.05 }}
                 whileHover={{ scale: 1.05 }}
                 className="text-xs font-medium bg-gradient-to-r from-purple-50 to-blue-50 dark:from-gray-700 dark:to-gray-700 text-purple-700 dark:text-purple-300 px-3 py-1.5 rounded-full shadow-sm"
               >
                 {tech}
               </motion.span>
             ))}
-          </div>
+          </motion.div>
         </div>
+        
         <div>
-          <ul className="grid grid-cols-2 gap-2 mb-6 text-sm text-gray-700 dark:text-gray-300">
+          <motion.ul 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="grid grid-cols-2 gap-2 mb-6 text-sm text-gray-700 dark:text-gray-300"
+          >
             {project.features.map((feature, idx) => (
               <motion.li
                 key={idx}
+                initial={{ x: -20, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 + idx * 0.1 }}
                 whileHover={{ x: 5 }}
                 className="flex items-center bg-gray-50 dark:bg-gray-700 px-3 py-2 rounded-lg"
               >
@@ -101,14 +171,21 @@ const ProjectCard = ({ project }) => {
                 {feature}
               </motion.li>
             ))}
-          </ul>
-          <div className="flex gap-4">
+          </motion.ul>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+            className="flex gap-4"
+          >
             {project.github && (
               <motion.a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
               >
@@ -123,7 +200,7 @@ const ProjectCard = ({ project }) => {
                 href={project.liveDemo}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className={`inline-flex items-center gap-2 text-sm font-semibold text-white px-4 py-2 rounded-lg transition-all shadow-md hover:shadow-lg ${
                   project.progress === "working" 
@@ -137,7 +214,7 @@ const ProjectCard = ({ project }) => {
                 {project.progress === "working" ? "Preview" : "Live Demo"}
               </motion.a>
             )}
-          </div>
+          </motion.div>
         </div>
       </div>
     </motion.div>
@@ -145,60 +222,122 @@ const ProjectCard = ({ project }) => {
 };
 
 const Projects = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2
-      }
-    }
+  const [visibleProjects, setVisibleProjects] = useState(2);
+  const [filter, setFilter] = useState("all");
+  
+  const filteredProjects = projects.filter(project => {
+    if (filter === "all") return true;
+    if (filter === "React") return project.technologies.includes("React");
+    if (filter === "JavaScript") return project.technologies.includes("JavaScript");
+    return true;
+  });
+
+  const loadMoreProjects = () => {
+    setVisibleProjects(prev => prev + 2);
   };
 
   return (
     <motion.section
       id="projects"
-      initial="hidden"
-      whileInView="visible"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "-100px" }}
-      variants={containerVariants}
-      className="bg-gradient-to-b from-white via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 py-20 px-4"
+      transition={{ duration: 0.5 }}
+      className="bg-gradient-to-b from-white via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 py-20 px-4 min-h-screen"
     >
       <div className="container mx-auto max-w-6xl">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold tracking-wider text-purple-600 dark:text-purple-400 mb-2 block">
+          <motion.span 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="text-sm font-semibold tracking-wider text-purple-600 dark:text-purple-400 mb-2 block"
+          >
             MY WORK
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+          >
             Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Projects</span>
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full" />
+          </motion.h2>
+          <motion.div 
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+            className="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"
+          />
+        </motion.div>
+
+        {/* Filter buttons - Only All, React, and JavaScript */}
+        <motion.div
+          className="flex flex-wrap justify-center gap-3 mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+        >
+          {["all", "React", "JavaScript"].map((tech) => (
+            <motion.button
+              key={tech}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                setFilter(tech);
+                setVisibleProjects(2);
+              }}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                filter === tech
+                  ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-md"
+                  : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600"
+              }`}
+            >
+              {tech === "all" ? "All" : tech}
+            </motion.button>
+          ))}
         </motion.div>
         
         <motion.div
           className="space-y-12"
-          variants={{
-            hidden: {},
-            visible: {
-              transition: {
-                staggerChildren: 0.2
-              }
-            }
-          }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ staggerChildren: 0.15, delayChildren: 0.3 }}
         >
-          {projects.map((project) => (
+          {filteredProjects.slice(0, visibleProjects).map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </motion.div>
-        
-       
+
+        {visibleProjects < filteredProjects.length && (
+          <motion.div 
+            className="flex justify-center mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.7 }}
+          >
+            <motion.button
+              onClick={loadMoreProjects}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all"
+            >
+              Load More Projects
+            </motion.button>
+          </motion.div>
+        )}
       </div>
     </motion.section>
   );
