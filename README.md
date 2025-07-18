@@ -54,3 +54,13 @@ This is my 30-day portfolio challenge project built with:
    - Desing it 
    - Add some projects usign Json Data
    - Remaning projects in next day
+
+
+   Saturday - Sunday - 2 
+
+- Day 10
+    - Add more projects 
+    - Add Filter 
+    - Add buttons 
+    - Attractive UI
+    

@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import HomePage from "./components/HomePage";
 import Projects from "./components/Projects";
+import RealTime from "./components/RealTime";
 
 const App = () => {
  
@@ -24,6 +25,7 @@ const App = () => {
         <HomePage/>
         <About />
         <Projects />
+        <RealTime />
         <Footer />
       </div>
     </div>
