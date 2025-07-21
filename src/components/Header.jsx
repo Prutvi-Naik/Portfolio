@@ -67,8 +67,8 @@ const Header = () => {
           </Link>
 
           <div className="flex items-center gap-4">
-            {/* Dark Mode Toggle */}
-            <motion.button
+            {/* Dark Mode Toggle  work on it letter*/}
+            {/* <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setDarkMode(!darkMode)}
@@ -80,7 +80,7 @@ const Header = () => {
               ) : (
                 <MoonIcon className="h-5 w-5 text-gray-700" />
               )}
-            </motion.button>
+            </motion.button> */}
 
             {/* Desktop Navigation */}
             <nav className="hidden md:block">

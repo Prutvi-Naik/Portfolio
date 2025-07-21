@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import HomePage from "./components/HomePage";
 import Projects from "./components/Projects";
 import RealTime from "./components/RealTime";
+import Contact from "./components/Contact";
 
 const App = () => {
  
@@ -18,6 +19,8 @@ const App = () => {
   localStorage.theme = "dark";
   localStorage.removeItem("theme");
 
+   
+
   return (
     <div className="h-auto bg-zinc-50 dark:bg-zinc-800 dark:text-amber-50 scroll-smooth">
       <div className="w-full  mx-auto ">
@@ -25,7 +28,9 @@ const App = () => {
         <HomePage/>
         <About />
         <Projects />
-        <RealTime />
+        {/* we will add it letter */}
+        {/* <RealTime />  */}
+        <Contact />
         <Footer />
       </div>
     </div>
