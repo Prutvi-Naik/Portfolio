@@ -64,3 +64,7 @@ This is my 30-day portfolio challenge project built with:
     - Add buttons 
     - Attractive UI
     
+- check all components 
+- create google form and add inside it 
+- something minor changes 
+- Decleare portfolio complete
