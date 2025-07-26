@@ -108,6 +108,34 @@
       "And more features"   
     ],
     "progress": "Complete"
+  },
+  {
+    "id": 5,
+    "name": "TODO-List-App",
+    "description":" A simple yet effective TODO list application that helps users manage their tasks efficiently. Built with Html , CSS and JS, this project emphasizes user-friendly design and functionality Using browser's local storage . ",
+    "date": "2025-feb",
+    "technologies": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "image": "https://th.bing.com/th/id/OIP.XGQyi7n5u75DU7ErkWnHlAHaHa?w=176&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+    "github": "https://github.com/Prutvi-Naik/ToDo_List",
+    "liveDemo": "",
+    "category": "Web App",
+    "tags": [
+      "Local Storage",
+      "Todo App",
+      "Logic Building"
+    ],
+    "features": [
+      "Atractive desing",
+      "Add, Edit, Delete Tasks",
+      "Task Prioritization",
+      "Easy to use"   
+    ],
+    "progress": "Complete"
   }
+  
  
 ]
